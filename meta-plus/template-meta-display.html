@@ -1,0 +1,91 @@
+    <title>
+        <perch:if exists="uniqueTitle">
+            <perch:content id="uniqueTitle" />
+        <perch:else />
+            <perch:content id="pageTitle" type="text" /> <perch:content id="postTitle" type="text" /> <perch:content id="eventTitle" type="text" />
+        </perch:if>
+    </title>
+   
+
+
+    <meta name="description" content="
+    <perch:if exists="description">
+        <perch:content id="description" label="Description" type="textarea" size="xs" escape="true" />
+    <perch:else />
+        <perch:if exists="excerpt">
+            <perch:content id="excerpt" type="textarea" escape="true" striptags="true" />
+                <perch:else />
+            <perch:content id="postDescHTML" type="textarea" striptags="true" words="20" append="..." />
+        </perch:if>
+    </perch:if>
+    "  >
+   
+    <meta name="author" content="
+    <perch:if exists="uniqueAuthor">
+        <perch:content id="uniqueAuthor" />
+    <perch:else />
+        <perch:content id="siteAuthor" />
+    " >
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+
+    <meta property="og:title" content="
+    <perch:if exists="ogtitle">
+        <perch:content id="ogtitle" label="Title" type="text" escape="true" divider-before="Open Graph Tags" />
+    <perch:else />
+        <perch:if exists="uniqueTitle">
+            <perch:content id="uniqueTitle" />
+        <perch:else />
+            <perch:content id="pageTitle" type="text" /> <perch:content id="postTitle" type="text" /> <perch:content id="eventTitle" type="text" />
+        </perch:if>
+    </perch:if>
+    ">
+
+    <meta property="og:type" content="<perch:if exists="ogtype"><perch:content id="ogtype" label="Type" type="text" escape="true" help="View http://ogp.me/#types for more information" /><perch:else />url</perch:if>"/>
+
+    <meta property="og:url" content="<perch:content id="url" type="hidden" />">
+
+    <meta property="og:description" content="
+        <perch:if exists="ogdescription">
+            <perch:content id="ogdescription" label="Description" type="textarea" size="xs" escape="true" />
+        <perch:else />
+                <perch:if exists="description">
+                        <perch:content id="description" label="Description" type="textarea" size="xs" escape="true" />
+                    <perch:else />
+                        <perch:if exists="excerpt">
+                            <perch:content id="excerpt" type="hidden" escape="true" striptags="true" />
+                                <perch:else />
+                            <perch:content id="postDescHTML" type="hidden" striptags="true" words="20" append="..." />
+                        </perch:if>
+                    </perch:if>
+        </perch:if>" >
+
+
+    <perch:if exists="ogdeterminer"><meta property="og:determiner" content="<perch:content id="ogdeterminer" label="Determiner" type="text" escape="true" />" /></perch:if>
+
+    <meta property="og:locale" content="<perch:if exists="oglocale"><perch:content id="oglocale" label="Locale (if empty = en_GB)" type="text" escape="true" /><perch:else />en_GB</perch:if>" />
+
+    <meta property="og:site_name" content="<perch:content id="siteName" type="hidden" />" />
+
+    <perch:if exists="ogimage">
+        <meta property="og:image" content="<perch:content id="domain" type="hidden" /><perch:content id="ogimage" label="Image" type="image" />" />
+        <meta property="og:image:width" content="<perch:content id="ogimage" label="Image" type="image" output="w" />" />
+        <meta property="og:image:height" content="<perch:content id="ogimage" label="Image" type="image" output="h" />" />
+        <meta property="og:image:type" content="<perch:content id="ogimage" label="Image" type="image" output="mime" />" />
+    <perch:else />
+        <perch:if exists="image">
+            <meta property="og:image" content="<perch:content id="domain" type="hidden" /><perch:content id="image" label="Image" type="image" />" />
+            <meta property="og:image:width" content="<perch:content id="image" label="Image" type="image" output="w" />" />
+            <meta property="og:image:height" content="<perch:content id="image" label="Image" type="image" output="h" />" />
+            <meta property="og:image:type" content="<perch:content id="image" label="Image" type="image" output="mime" />" />
+        </perch:if>
+    </perch:if>
+
+    <perch:if exists="ogaudio">
+        <meta property="og:audio" content="<perch:content id="domain" type="hidden" /><perch:content id="ogaudio" label="Audio" type="file" />" />
+    </perch:if>
+    <perch:if exists="ogvideo">
+        <meta property="og:video" content="<perch:content id="domain" type="hidden" /><perch:content id="ogvideo" label="Video" type="file" />" />
+    </perch:if>
