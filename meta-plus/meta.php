@@ -1,6 +1,6 @@
 <?php
 	global $metaDetails;
-	$domain = 'http://'.$_SERVER["HTTP_HOST"];
+	$domain = ( $_SERVER['SERVER_PORT'] == 443 ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"];
 	$url = $domain.$_SERVER["REQUEST_URI"];
 	PerchSystem::set_var('url',$url);
 	PerchSystem::set_var('domain',$domain);
